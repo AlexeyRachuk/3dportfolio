@@ -19,6 +19,6 @@ class WorkSingle(DetailView):
     context_object_name = 'single'
 
 
-class Images(ListView):
+class ImageSets(DetailView):
     model = ImageSet
-    context_object_name = 'images'
+    context_object_name = 'image'

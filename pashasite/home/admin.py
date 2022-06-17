@@ -5,7 +5,7 @@ from django.contrib.contenttypes.admin import GenericTabularInline
 from .models import ImageSet, Works, Home
 
 
-class ImageInline(TabularInline):
+class ImageInline(admin.TabularInline):
     model = ImageSet
 
 

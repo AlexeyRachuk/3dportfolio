@@ -10,14 +10,14 @@
             </div>
         </div>
         <div class="row">
+            {% for image in single.image.all %}
             <div class="col-md-6">
-                {% for single.image in single.images.all %}
-                <p><a href="{{ single.image.url }}" class="image-popup"><img
-                        src="{{ single.image.url }}"
+                <p><a href="{{ image.image.url }}" class="image-popup"><img
+                        src="{{ image.image.url }}"
                         class="img-responsive"></a>
                 </p>
-                {% endfor %}
             </div>
+            {% endfor %}
 
         </div>
     </div>

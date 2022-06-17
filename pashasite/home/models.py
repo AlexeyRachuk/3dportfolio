@@ -5,7 +5,6 @@ from django.urls import reverse
 from datetime import date
 
 
-
 class Home(models.Model):
     title = models.CharField('Заголовок', max_length=70)
     description = models.TextField('Описание')
@@ -35,9 +34,12 @@ class Works(models.Model):
 
 class ImageSet(models.Model):
     order = models.SmallIntegerField('Сортировка', default=0)
-    works = models.ForeignKey(Works, verbose_name='Изображение работы', null=True, blank=True, on_delete=models.SET_NULL)
-    image = models.ImageField(upload_to='image/', verbose_name='Изображение работы')
+    works = models.ForeignKey(Works, verbose_name='Изображение работы', null=True, blank=True,
+                              on_delete=models.SET_NULL, related_name='image')
+    image = models.ImageField(upload_to='image/', verbose_name='Изображение работы',
+                              null=True)
 
-    class Meta:
-        verbose_name = 'Фото работ'
-        verbose_name_plural = 'Фото работ'
+
+class Meta:
+    verbose_name = 'Фото работ'
+    verbose_name_plural = 'Фото работ'
