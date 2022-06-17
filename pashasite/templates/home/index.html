@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for home in homes %}
+<div class="probootstrap-section">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 mb40">
+                <h2>{{ home.title }}</h2>
+                <p>{{ home.description }}</p>
+            </div>
+        </div>
+
+        <div class="row probootstrap-gutter16">
+            {% for work in works %}
+            <div class="col-md-4 probootstrap-animate" data-animate-effect="fadeIn">
+
+                <a href="{{ work.get_absolute_url }}" class="img-bg"
+                   style="background-image: url({{ work.prew_image.url }});">
+                    <div class="probootstrap-photo-details">
+                        <h2>{{ work.title }}</h2>
+                        <p>{{ work.subtitle }}</p>
+                    </div>
+                </a>
+
+            </div>
+
+{% endfor %}
+        </div>
+    </div>
+{% endfor %}
+    {% endblock content %}
+

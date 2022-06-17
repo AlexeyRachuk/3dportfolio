@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="probootstrap-section">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 mb40 text-center">
+                <h2>{{ single.title }}</h2>
+                <p>{{ single.subtitle }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                {% for image in images %}
+                <p><a href="{{ image.url }}" class="image-popup"><img
+                        src="{{ image.url }}"
+                        class="img-responsive"></a>
+                </p>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    {% endblock content %}
+
+
