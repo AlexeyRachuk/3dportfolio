@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3 mb40 text-center">
                 <h2>{{ single.title }}</h2>
-                <p>{{ single.date }}</p>
+                <!--<p>{{ single.date }}</p>-->
             </div>
         </div>
         <div class="row">
@@ -20,6 +20,9 @@
             {% endfor %}
 
         </div>
+        <div class="col-md-6 col-md-offset-3 mb40 text-center">
+                <p>{{ single.date }}</p>
+            </div>
     </div>
     {% endblock content %}
 
