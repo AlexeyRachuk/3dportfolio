@@ -8,7 +8,7 @@ from .models import Home, Works, ImageSet
 
 def home(request):
     return render(request, 'home/index.html', {'homes': Home.objects.all(),
-                                               'works': Works.objects.all().filter(draft=True),
+                                               'works': Works.objects.all().filter(draft=True).order_by('-date'),
                                                'images': ImageSet.objects.all().order_by('order')})
 
 

@@ -2,6 +2,8 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.urls import reverse
+from datetime import date
+
 
 
 class Home(models.Model):
@@ -15,10 +17,10 @@ class Home(models.Model):
 
 class Works(models.Model):
     title = models.CharField('Название', max_length=70)
-    subtitle = models.CharField('Подзаголовок', max_length=100)
+    date = models.DateField('Дата публикации', default=date.today)
     prew_image = models.ImageField('Превью на главную', upload_to="image/")
     url = models.SlugField(max_length=130, unique=True)
-    draft = models.BooleanField("Публикация", default=False)
+    draft = models.BooleanField("Публикация", default=True)
 
     def __str__(self):
         return self.title
