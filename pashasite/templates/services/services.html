@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="probootstrap-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 mb80 text-center probootstrap-animate">
+                {% for service in services_main %}
+                <h2>{{ service.title }}</h2>
+                <p>{{ service.descr }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
+            {% for service in services_big %}
+            <div class="col-md-4">
+                <div class="icon"><i class="{{ service.icon }}"></i></div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="mt0">{{ service.title }}</h2>
+                {{ service.descr|safe }}
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 mb80 text-center probootstrap-animate">
+                {% for service in services_main %}
+                <h2>{{ service.title_more }}</h2>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row">
+            {% for service in services_small %}
+            <div class="col-md-4">
+                <div class="service left-icon probootstrap-animate">
+                    <div class="icon">
+                        <i class="{{ service.icon }}"></i>
+                    </div>
+                    <div class="text">
+                        <h3 class="heading">{{ service.title }}</h3>
+                        {{ service.descr|safe }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

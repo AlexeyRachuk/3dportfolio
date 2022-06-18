@@ -3,15 +3,19 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from solo.models import SingletonModel
 
 
-class Home(models.Model):
+class Home(SingletonModel):
     title = models.CharField('Заголовок', max_length=70)
     description = models.TextField('Описание')
     copywrite = models.CharField('Копирайт в подвале', max_length=200)
     insta = models.CharField('Инстаграм', max_length=100, blank=True)
     telega = models.CharField('Телеграмм', max_length=100, blank=True)
     vk = models.CharField('ВК', max_length=100, blank=True)
+
+    def __str__(self):
+        return self.copywrite
 
     class Meta:
         verbose_name = 'Главная'

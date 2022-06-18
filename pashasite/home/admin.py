@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.contrib.admin import TabularInline
-from django.contrib.contenttypes.admin import GenericTabularInline
+from solo.admin import SingletonModelAdmin
 
 from .models import ImageSet, Works, Home
 
 
 class ImageInline(admin.TabularInline):
     model = ImageSet
+    extra = 1
 
 
 @admin.register(Works)
@@ -23,5 +24,5 @@ class WorksAdmin(admin.ModelAdmin):
 
 
 @admin.register(Home)
-class HomeAdmin(admin.ModelAdmin):
-    list_display = ['title', 'description']
+class HomeAdmin(SingletonModelAdmin):
+    fields = ('title', 'description', 'copywrite', 'insta', 'telega', 'vk')
