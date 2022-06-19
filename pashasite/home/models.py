@@ -10,9 +10,6 @@ class Home(SingletonModel):
     title = models.CharField('Заголовок', max_length=70)
     description = models.TextField('Описание')
     copywrite = models.CharField('Копирайт в подвале', max_length=200)
-    insta = models.CharField('Инстаграм', max_length=100, blank=True)
-    telega = models.CharField('Телеграмм', max_length=100, blank=True)
-    vk = models.CharField('ВК', max_length=100, blank=True)
 
     def __str__(self):
         return self.copywrite

@@ -1,8 +1,20 @@
+from django import forms
 from django.contrib import admin
 from django.contrib.admin import TabularInline
 from solo.admin import SingletonModelAdmin
 
 from .models import ImageSet, Works, Home
+
+
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+
+
+class HomeAdminForm(forms.ModelForm):
+    description = forms.CharField(label='Описание', widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Home
+        fields = '__all__'
 
 
 class ImageInline(admin.TabularInline):
@@ -26,3 +38,4 @@ class WorksAdmin(admin.ModelAdmin):
 @admin.register(Home)
 class HomeAdmin(SingletonModelAdmin):
     fields = ('title', 'description', 'copywrite', 'insta', 'telega', 'vk')
+    form = HomeAdminForm

@@ -34,10 +34,10 @@
 
         <nav role="navigation" class="probootstrap-nav hidden-xs">
             <ul class="probootstrap-main-nav">
-                <li class="active"><a href="/">Главная</a></li>
-                <li><a href="/services/">Услуги</a></li>
-                <li><a href="about.html">Обо мне</a></li>
-                <li><a href="contact.html">Связаться</a></li>
+
+           {% load menubuilder %}{% menu headermenu %}
+    {% for item in menuitems %}<li class="nav-item"><a href="{{ item.url }}" title="{{ item.title|escape }}"{% if item.current %} class='active' {% else %} {% endif %}>{{ item.title }}</a></li>
+    {% endfor %}
             </ul>
             <div class="extra-text visible-xs">
                 <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
@@ -55,9 +55,6 @@
 
             <div class="col-md-12">
                 <p class="probootstrap-copyright">&copy; {{ copywrite }}</p>
-                <ul class="probootstrap-social">
-                    <li><a href="{{ home.insta }}"><i class="icon-instagram2"></i></a></li>
-                </ul>
             </div>
         </div>
     </div>
@@ -74,3 +71,4 @@
 
 </body>
 </html>
+
