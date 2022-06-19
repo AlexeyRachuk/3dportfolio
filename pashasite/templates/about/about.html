@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for about in abouts %}
+<section class="probootstrap-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p><img src="{{ about.image.url }}" class="img-responsive"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-md-push-5">
+                <h2>{{ about.title }}</h2>
+                {{ about.desr|safe }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+{% endblock content %}
