@@ -1,8 +1,13 @@
 from . import views
-from django.urls import path
+from .views import about, AboutViewSet
+from django.urls import path, include
+from rest_framework import routers
 
-from .views import about
+router = routers.DefaultRouter()
+router.register(r'about', AboutViewSet)
+
 
 urlpatterns = [
     path('', about),
+    path('api/', include(router.urls)),
 ]
