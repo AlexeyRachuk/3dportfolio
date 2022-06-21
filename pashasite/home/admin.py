@@ -2,11 +2,15 @@ from django import forms
 from django.contrib import admin
 from django.contrib.admin import TabularInline
 from solo.admin import SingletonModelAdmin
+from metatags.admin import MetaTagInline
 
 from .models import ImageSet, Works, Home
 
-
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
+
+
+class CustomModelAdmin(admin.ModelAdmin):
+    inlines = (MetaTagInline,)
 
 
 class HomeAdminForm(forms.ModelForm):
@@ -37,5 +41,5 @@ class WorksAdmin(admin.ModelAdmin):
 
 @admin.register(Home)
 class HomeAdmin(SingletonModelAdmin):
-    fields = ('title', 'description', 'copywrite', 'insta', 'telega', 'vk')
+    fields = ('title', 'description', 'copywrite')
     form = HomeAdminForm

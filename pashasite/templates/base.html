@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 {% load static %}
+{% load meta_tags %}
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>uiCookies:Explorer &mdash; Free Bootstrap Theme, Free Responsive Bootstrap Website Template</title>
-    <meta name="description" content="Free Bootstrap Theme by uicookies.com">
-    <meta name="keywords"
-          content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
-
+    {% block meta_tags %}
+    {% include_meta_tags default_title='Проект' %}
+    {% endblock %}
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles-merged.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
@@ -35,9 +34,11 @@
         <nav role="navigation" class="probootstrap-nav hidden-xs">
             <ul class="probootstrap-main-nav">
 
-           {% load menubuilder %}{% menu headermenu %}
-    {% for item in menuitems %}<li class="nav-item"><a href="{{ item.url }}" title="{{ item.title|escape }}"{% if item.current %} class='active' {% else %} {% endif %}>{{ item.title }}</a></li>
-    {% endfor %}
+                {% load menubuilder %}{% menu headermenu %}
+                {% for item in menuitems %}
+                <li class="nav-item"><a href="{{ item.url }}" title="{{ item.title|escape }}" {% if item.current %}
+                                        class='active' {% else %} {% endif %}>{{ item.title }}</a></li>
+                {% endfor %}
             </ul>
             <div class="extra-text visible-xs">
                 <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>

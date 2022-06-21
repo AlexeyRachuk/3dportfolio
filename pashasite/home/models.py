@@ -36,6 +36,11 @@ class Works(models.Model):
         verbose_name = 'Работы'
         verbose_name_plural = 'Работы'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = str(context.name)
+        return context
+
 
 class ImageSet(models.Model):
     order = models.SmallIntegerField('Сортировка', default=0)
